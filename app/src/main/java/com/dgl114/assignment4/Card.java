@@ -1,16 +1,33 @@
 package com.dgl114.assignment4;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 // 1. Add Room annotations as necessary to this file.
+@Entity(tableName = "card")
 public class Card {
 
+    @PrimaryKey(autoGenerate = true)
     private long mId;
+
+    @ColumnInfo(name = "mText")
     private String mText;
+
+    @ColumnInfo(name = "mDetail")
     private String mDetail;
 
     public Card() {}
 
     public Card(String text) {
         mText = text;
+    }
+
+    @Ignore
+    public Card(String mText, String mDetail){
+        this.mText = mText;
+        this.mDetail = mDetail;
     }
 
     public long getId() {

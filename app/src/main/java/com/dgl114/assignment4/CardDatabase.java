@@ -1,11 +1,13 @@
 package com.dgl114.assignment4;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 // 1. Add Room annotations here.
+@Database(entities = Card.class, exportSchema = false, version = 1)
 public abstract class CardDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "card.db";
@@ -17,7 +19,7 @@ public abstract class CardDatabase extends RoomDatabase {
             // 2. Complete this method. Consider the approach used in StudyHelper.
                 // Don't neglect to handle database schema changes,
                 // and don't forget to add starter data!
-
+            mCardDatabase = Room.databaseBuilder(context.getApplicationContext(), CardDatabase.class, DATABASE_NAME).build();
         }
 
         return mCardDatabase;
@@ -30,7 +32,18 @@ public abstract class CardDatabase extends RoomDatabase {
         // but! the specific model methods will differ.
         // Don't forget that in StudyHelper both Subject and Questions were handled here
         // you only need to handle Cards, but you will need to use runInTransaction()
-    private void addStarterData() {
-
+    public void addStarterData() {
+        new addCard();
     }
+
+    private class addCard extends AsyncTask<Void, Void, Void>
+    {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Card card = new Card("Red", "Red is violence, anger, and aggression, and it frequently indicates danger.");
+            mCardDatabase.cardDao().insertCard(card);
+            return null;
+        }
+    }
+
 }
