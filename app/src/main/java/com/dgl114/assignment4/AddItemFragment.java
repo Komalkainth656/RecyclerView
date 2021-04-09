@@ -64,11 +64,11 @@ public class AddItemFragment extends DialogFragment implements View.OnClickListe
         switch (v.getId()){
             case R.id.addButton:
             if(etTitle.getText().toString().isEmpty()){
-                Toast.makeText(getContext(), "Enter item to add", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Enter color name", Toast.LENGTH_LONG).show();
                 return;
             }
             if(etDescription.getText().toString().isEmpty()){
-                Toast.makeText(getContext(), "Enter description", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Enter color description", Toast.LENGTH_LONG).show();
                 return;
             }
             addItemInterface.addItem(etTitle.getText().toString(), etDescription.getText().toString());

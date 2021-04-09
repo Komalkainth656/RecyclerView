@@ -2,10 +2,14 @@ package com.dgl114.assignment4;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import java.util.concurrent.ExecutionException;
+
 // 1. Add Room annotations here.
 @Database(entities = Card.class, exportSchema = false, version = 1)
 public abstract class CardDatabase extends RoomDatabase {
@@ -33,7 +37,14 @@ public abstract class CardDatabase extends RoomDatabase {
         // Don't forget that in StudyHelper both Subject and Questions were handled here
         // you only need to handle Cards, but you will need to use runInTransaction()
     public void addStarterData() {
-        new addCard();
+        try {
+            new addCard().execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private class addCard extends AsyncTask<Void, Void, Void>

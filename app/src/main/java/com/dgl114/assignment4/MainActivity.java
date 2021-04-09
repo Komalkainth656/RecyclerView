@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements AddItemInterface,
         return new getCardsAsyncTask().execute().get();
     }
 
+    //Override method of interface to add the item in the list.
     @Override
     public void addItem(String name, String description) {
         Card card = new Card(name, description);
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements AddItemInterface,
         }
     }
 
+    //Override method of interface to delete the item from the list. This method will trigger when person long press on the item
     @Override
     public void deleteItem(Card card) {
         try {
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements AddItemInterface,
         }
     }
 
-
+    //async task to get all the cards from the database and on post execution the list is refreshed
     private class getCardsAsyncTask extends AsyncTask<Void, Void,List<Card>>
     {
         @Override
@@ -103,8 +105,9 @@ public class MainActivity extends AppCompatActivity implements AddItemInterface,
             list.addAll(cards);
             mCardAdapter.notifyDataSetChanged();
         }
-    }  
-    
+    }
+
+    //async task to add the card in the database and on post execution the list is refreshed
     private class addCards extends AsyncTask<Void, Void,Void>
     {
         Card card;
@@ -131,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements AddItemInterface,
         }
     }
 
+    //async task to delete the card from the database and on post execution the list is refreshed
     private class deleteCard extends AsyncTask<Void, Void,Void>
     {
         Card card;
@@ -162,13 +166,11 @@ public class MainActivity extends AppCompatActivity implements AddItemInterface,
 
         private Card mCard;
         private TextView mTextView;
-        private TextView tvCardDetails;
         private ItemClickInterface clickInterface;
         public CardHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.recycler_view_items, parent, false));
             itemView.setOnClickListener(this);
             mTextView = itemView.findViewById(R.id.cardTextView);
-            tvCardDetails = itemView.findViewById(R.id.tvCardDetails);
             itemView.setOnLongClickListener(this);
         }
 
@@ -180,7 +182,6 @@ public class MainActivity extends AppCompatActivity implements AddItemInterface,
             mCard = card;
             this.clickInterface = clickInterface;
             mTextView.setText(mCard.getText());
-            tvCardDetails.setText(mCard.getDetail());
 
         }
 
@@ -228,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements AddItemInterface,
         }
     }
 
-    //method used to inflate the menu
+    //method used to inflate the menu to show the add icon in the toolbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);

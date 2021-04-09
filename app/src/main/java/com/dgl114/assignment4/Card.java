@@ -18,13 +18,6 @@ public class Card {
     @ColumnInfo(name = "mDetail")
     private String mDetail;
 
-    public Card() {}
-
-    public Card(String text) {
-        mText = text;
-    }
-
-    @Ignore
     public Card(String mText, String mDetail){
         this.mText = mText;
         this.mDetail = mDetail;

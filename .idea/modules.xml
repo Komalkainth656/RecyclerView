@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RecyclerView-assignment4.iml" filepath="$PROJECT_DIR$/.idea/modules/RecyclerView-assignment4.iml" group="assignment4" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="assignment4/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RecyclerView.assignment4.iml" filepath="$PROJECT_DIR$/.idea/modules/RecyclerView.assignment4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RecyclerView.assignment4.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RecyclerView.assignment4.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/assignment4.iml" filepath="$PROJECT_DIR$/.idea/modules/assignment4.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/assignment4.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/assignment4.app.iml" />
     </modules>

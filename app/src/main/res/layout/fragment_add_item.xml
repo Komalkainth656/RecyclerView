@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:inputType="text"
-        android:hint="Enter name"
+        android:hint="Enter color name"
         android:padding="15dp"
         android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"

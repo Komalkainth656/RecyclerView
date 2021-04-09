@@ -29,7 +29,6 @@ public interface CardDao {
 
     // 4. You may include @Update and @Delete methods,
         // though they are not required for a minimum submission.
-
     @Delete
     void deleteCard(Card card);
 
